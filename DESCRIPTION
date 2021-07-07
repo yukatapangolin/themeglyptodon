@@ -1,0 +1,13 @@
+Package: glyptodon
+Type: Package
+Title: Theme for ggplot2
+Version: 1.0.0
+Author: Yukata Pangolin
+Maintainer: Yukata Pangolin <yourself@somewhere.net>
+Description: Theme for ggplot2 base on hrbrthemes.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    extrafont

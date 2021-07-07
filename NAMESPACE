@@ -1,0 +1,3 @@
+exportPattern("^[[:alpha:]]+")
+export(theme_glyptodon)
+import(ggplot2)
