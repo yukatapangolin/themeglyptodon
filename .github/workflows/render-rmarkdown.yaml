@@ -30,7 +30,8 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages("renv")'
+          R -e 'install.packages("renv", "rmarkdown", "remotes", "extrafont", "showtext", "ggplot2")'
+          R -e 'remotes::install_github("yukatapangolin/themeglyptodon")
           R -e 'renv::restore()'
 
       - name: Render Rmarkdown files
