@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/yukatapangolin/themeglyptodon/workflows/R-CMD-check/badge.svg)](https://github.com/yukatapangolin/themeglyptodon/actions)
-  <!-- badges: end -->
+<!-- badges: end -->
 
 
 Theme for ggplot2 based on hrbthemes
