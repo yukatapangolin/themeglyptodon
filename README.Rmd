@@ -29,8 +29,8 @@ Theme for ggplot2 based on hrbthemes
 You can install the package with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("yukatapangolin/themeglyptodon")
+# install.packages("remotes")
+remotes::install_github("yukatapangolin/themeglyptodon")
 ```
 ## Example
 
