@@ -66,7 +66,7 @@ ggplot(df, aes(dates, values)) +
   geom_line()+
   theme_glyptodon() +
   labs(title = "Example",
-       subtitle = "Testing",
+       subtitle = "Testing Test",
        caption = "Source: https://github.com/yukatapangolin/themeglyptodon")
 ```
 
