@@ -1,64 +1,57 @@
-<!-- badges: start -->
-  [![R-CMD-check](https://github.com/yukatapangolin/themeglyptodon/workflows/R-CMD-check/badge.svg)](https://github.com/yukatapangolin/themeglyptodon/actions)
-  <!-- badges: end -->
-
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-
-# glyptodon
+# theme\_glyptodon
 
 <!-- badges: start -->
-<!-- badges: end -->
+[![R-CMD-check](https://github.com/yukatapangolin/themeglyptodon/workflows/R-CMD-check/badge.svg)](https://github.com/yukatapangolin/themeglyptodon/actions) <!-- badges: end -->
 
-The goal of glyptodon is to ...
+Theme for ggplot2 based on hrbthemes
 
 ## Installation
 
-You can install the released version of glyptodon from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("glyptodon")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the package with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("yukatapangolin/themeglyptodon")
 ```
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-
-```r
+``` r
 library(glyptodon)
+library(ggplot2)
+library(showtext)
+#> Loading required package: sysfonts
+#> Loading required package: showtextdb
+
+font_add_google("Arimo", "Arial")
+font_add("Roboto Condensed", 
+                file.path(system.file("fonts", 
+                                      "roboto-condensed", 
+                                      package="glyptodon"),
+                          "RobotoCondensed-Regular.ttf"))
+font_add("Roboto Condensed Light", 
+                file.path(system.file("fonts", 
+                                      "roboto-condensed", 
+                                      package="glyptodon"),
+                          "RobotoCondensed-Light.ttf"))
+font_add("Goldman Sans Condensed",
+         file.path(system.file("fonts", 
+                               "goldman-sans", 
+                               package="glyptodon"),
+                   "GoldmanSansCd_Rg.ttf"))
+showtext_auto()
 ## basic example code
+df <- data.frame(dates = seq(as.Date("2020-01-01"), length.out = 12, 
+                                     by = "month"),
+                 values = 1:12)
+ggplot(df, aes(dates, values)) +
+  geom_line()+
+  theme_glyptodon() +
+  labs(title = "Example",
+       subtitle = "Testing",
+       caption = "Source: https://github.com/yukatapangolin/themeglyptodon")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-
-```r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" title="plot of chunk pressure" alt="plot of chunk pressure" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+<img src="man/figures/README-example-1.png" width="100%" />

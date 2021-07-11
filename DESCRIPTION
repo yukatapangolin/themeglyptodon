@@ -4,10 +4,11 @@ Title: Theme for ggplot2
 Version: 1.0.0
 Author: Yukata Pangolin
 Maintainer: Yukata Pangolin <yourself@somewhere.net>
-Description: Theme for ggplot2 base on hrbrthemes.
+Description: Theme for ggplot2 based on hrbrthemes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     ggplot2,
-    extrafont
+    extrafont,
+    showtext
