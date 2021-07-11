@@ -32,6 +32,7 @@ You can install the package with:
 # install.packages("remotes")
 remotes::install_github("yukatapangolin/themeglyptodon")
 ```
+
 ## Example
 
 ```{r example}
