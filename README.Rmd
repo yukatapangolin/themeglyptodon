@@ -56,6 +56,7 @@ font_add("Goldman Sans Condensed",
                                package="glyptodon"),
                    "GoldmanSansCd_Rg.ttf"))
 showtext_auto()
+
 ## basic example code
 df <- data.frame(dates = seq(as.Date("2020-01-01"), length.out = 12, 
                                      by = "month"),
