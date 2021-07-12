@@ -30,7 +30,7 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages(c("renv", "rmarkdown", "remotes", "extrafont", "showtext", "ggplot2", "curl"))'
+          R -e 'install.packages(c("renv", "rmarkdown", "Cairo", "remotes", "extrafont", "showtext", "ggplot2", "curl"), dependencies=TRUE)'
           R -e 'remotes::install_github("yukatapangolin/themeglyptodon")'
           R -e 'renv::restore()'
 
