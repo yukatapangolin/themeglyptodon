@@ -43,6 +43,7 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
                              strip_text_family = base_family, strip_text_size = 12, strip_text_face = "plain",
                              caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
                              caption_size = 9, caption_face = "plain", caption_margin = 10,
+                             axis_text_family = "Goldman Sans Condensed",
                              axis_text_size = base_size-.5, axis_title_family = "Arial",
                              axis_title_size = 9, axis_title_face = "plain", axis_title_just = "rt",
                              plot_margin = margin(30, 30, 30, 30), grid_col = "#aaaaaa",
@@ -119,11 +120,11 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
                l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
   yj <- switch(tolower(substr(axis_title_just, 2, 2)), b = 0,
                l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
-  ret <- ret + theme(axis.text.x = element_text(family = "Goldman Sans Condensed",
+  ret <- ret + theme(axis.text.x = element_text(family = axis_text_family,
                                                 color = "#222222",
                                                 size = axis_title_size+5,
                                                 margin = margin(t = 1)))
-  ret <- ret + theme(axis.text.y = element_text(family = "Goldman Sans Condensed",
+  ret <- ret + theme(axis.text.y = element_text(family = axis_text_family,
                                                 color = "#222222",
                                                 size = axis_title_size+5,
                                                 margin = margin(r = 0)))
