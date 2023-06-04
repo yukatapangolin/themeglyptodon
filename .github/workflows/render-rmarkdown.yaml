@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - '**.Rmd'
+      - '**render-markdown.yaml'
       
 name: Render-Markdown
 
@@ -38,13 +39,14 @@ jobs:
 
       - name: Render Rmarkdown files
         run: |
-          RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '[.]Rmd$'))
           Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f)' ${RMD_PATH[*]} 
+          RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '[.]Rmd$'))
+          echo $RMD_PATH
 
       - name: Commit results
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git commit ${RMD_PATH[*]/.Rmd/.md} -m 'Re-build Rmarkdown files' || echo "No changes to commit"
-          git commit *.png -m 'Re-build charts for Rmarkdown files' || echo "No changes to commit"
+          git commit ${RMD_PATH[*]/.Rmd/.md} -m 'Re-build .Rmd Rmarkdown files' || echo "No changes to commit"
+          git commit *.png -m 'Re-build .png charts for Rmarkdown files' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
