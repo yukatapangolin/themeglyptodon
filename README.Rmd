@@ -83,6 +83,7 @@ font_add("Source Sans Pro",
                                package="glyptodon"),
                    "SourceSansPro-Regular.ttf"))
 showtext_auto()
+
 ## basic example code
 df <- data.frame(dates = seq(as.Date("2020-01-01"), length.out = 12, 
                              by = "month"),
