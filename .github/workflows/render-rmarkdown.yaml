@@ -2,6 +2,8 @@ on:
   push:
     paths:
       - '**.Rmd'
+      
+name: Render-Markdown
 
 jobs:
   build:
