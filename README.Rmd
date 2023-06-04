@@ -33,38 +33,67 @@ remotes::install_github("yukatapangolin/themeglyptodon")
 
 ## Example
 
-```{r example}
+```{r example, fig.width = 8, fig.height = 4}
 library(glyptodon)
 library(ggplot2)
 library(showtext)
 
+## Add Arimo as Arial in case it's not installed like in the Github testing container
 font_add_google("Arimo", "Arial")
+font_add("Roboto", 
+         regular = file.path(system.file("fonts", 
+                               "roboto", 
+                               package="glyptodon"),
+                   "Roboto-Regular.ttf"),
+         italic = file.path(system.file("fonts", 
+                               "roboto", 
+                               package="glyptodon"),
+                   "Roboto-Italic.ttf"))
 font_add("Roboto Condensed", 
-                file.path(system.file("fonts", 
-                                      "roboto-condensed", 
-                                      package="glyptodon"),
-                          "RobotoCondensed-Regular.ttf"))
+         file.path(system.file("fonts", 
+                               "roboto-condensed", 
+                               package="glyptodon"),
+                   "RobotoCondensed-Regular.ttf"))
 font_add("Roboto Condensed Light", 
-                file.path(system.file("fonts", 
-                                      "roboto-condensed", 
-                                      package="glyptodon"),
-                          "RobotoCondensed-Light.ttf"))
+         file.path(system.file("fonts", 
+                               "roboto-condensed", 
+                               package="glyptodon"),
+                   "RobotoCondensed-Light.ttf"))
 font_add("Goldman Sans Condensed",
          file.path(system.file("fonts", 
                                "goldman-sans", 
                                package="glyptodon"),
                    "GoldmanSansCd_Rg.ttf"))
+font_add("PT Sans",
+         file.path(system.file("fonts", 
+                               "pt-sans", 
+                               package="glyptodon"),
+                   "PTSans-Regular.ttf"))
+font_add("Noto Sans",
+         regular = file.path(system.file("fonts", 
+                               "noto-sans", 
+                               package="glyptodon"),
+                   "NotoSans-Regular.ttf"),
+         bold = file.path(system.file("fonts", 
+                               "noto-sans", 
+                               package="glyptodon"),
+                   "NotoSans-Bold.ttf"))
+font_add("Source Sans Pro",
+         file.path(system.file("fonts", 
+                               "source-sans-pro", 
+                               package="glyptodon"),
+                   "SourceSansPro-Regular.ttf"))
 showtext_auto()
-
 ## basic example code
 df <- data.frame(dates = seq(as.Date("2020-01-01"), length.out = 12, 
-                                     by = "month"),
+                             by = "month"),
                  values = 1:12)
 ggplot(df, aes(dates, values)) +
-  geom_line()+
+  geom_line() +
+  expand_limits(y = 0) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0))) +
   theme_glyptodon() +
-  labs(title = "Example",
-       subtitle = "Testing Test",
+  labs(title = "Change in Stuff",
+       subtitle = "You can copy and paste your own content in to see what it looks like with these font combinations",
        caption = "Source: https://github.com/yukatapangolin/themeglyptodon")
 ```
-

@@ -1,7 +1,7 @@
 Package: glyptodon
 Type: Package
 Title: Theme for ggplot2
-Version: 1.0.0
+Version: 1.1.0
 Author: Yukata Pangolin
 Maintainer: Yukata Pangolin <yourself@somewhere.net>
 Description: Theme for ggplot2 based on hrbrthemes.

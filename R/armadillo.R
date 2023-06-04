@@ -36,18 +36,18 @@
 #'
 #' @examples
 theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
-                             plot_title_family = base_family, plot_title_size = 18, plot_title_face = "bold",
-                             plot_title_margin = 10, subtitle_family = if (.Platform$OS.type ==
-                                                                           "windows") "Roboto Condensed" else "Roboto Condensed Light",
-                             subtitle_size = 11, subtitle_face = "plain", subtitle_margin = 15,
+                             plot_title_family = "Noto Sans", plot_title_size = 21, plot_title_face = "bold",
+                             plot_title_margin = 5, subtitle_family = "Source Sans Pro",
+                             subtitle_size = base_size + 1, subtitle_face = "plain", subtitle_margin = 15,
+
                              strip_text_family = base_family, strip_text_size = 12, strip_text_face = "plain",
-                             caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
-                             caption_size = 9, caption_face = "plain", caption_margin = 10,
+                             caption_family = "Roboto",
+                             caption_size = base_size - 2, caption_face = "italic", caption_margin = 10,
                              axis_text_family = "Goldman Sans Condensed",
                              axis_text_size = base_size-.5, axis_title_family = "Arial",
-                             axis_title_size = 9, axis_title_face = "plain", axis_title_just = "rt",
-                             plot_margin = margin(30, 30, 30, 30), grid_col = "#aaaaaa",
-                             grid = TRUE, axis_col = "#444444", axis = TRUE, ticks = TRUE)
+                             axis_title_size = 10, axis_title_face = "plain", axis_title_just = "rt",
+                             plot_margin = margin(20, 20, 20, 20), grid_col = "#aaaaaa",
+                             grid = TRUE, axis_col = "#333333", axis = TRUE, ticks = TRUE)
 {
   ret <- ggplot2::theme_minimal(base_family = base_family,
                                 base_size = base_size)
@@ -123,7 +123,7 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
   ret <- ret + theme(axis.text.x = element_text(family = axis_text_family,
                                                 color = "#222222",
                                                 size = axis_title_size+5,
-                                                margin = margin(t = 1)))
+                                                margin = margin(t = 2)))
   ret <- ret + theme(axis.text.y = element_text(family = axis_text_family,
                                                 color = "#222222",
                                                 size = axis_title_size+5,
@@ -131,9 +131,9 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
   ret <- ret + theme(axis.title = element_text(size = axis_title_size+1,
                                                family = axis_title_family))
   ret <- ret + theme(axis.title.x = element_text(hjust = xj,
-                                                 size = axis_title_size+1.5, family = axis_title_family, face = axis_title_face))
+                                                 size = axis_title_size+1, family = axis_title_family, face = axis_title_face))
   ret <- ret + theme(axis.title.y = element_text(hjust = yj,
-                                                 size = axis_title_size+1.5, family = axis_title_family, face = axis_title_face))
+                                                 size = axis_title_size+1, family = axis_title_family, face = axis_title_face))
   ret <- ret + theme(axis.title.y.right = element_text(hjust = yj,
                                                        size = axis_title_size, angle = 90, family = axis_title_family,
                                                        face = axis_title_face))
@@ -154,9 +154,10 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
                                          colour = NA, linetype = 1), text = element_text(colour = "Black"),
 
                      panel.grid.major = element_line(colour = "#70602d",
-                                                     size = rel(.65)),
+                                                     size = rel(.25)),
                      panel.grid.minor = element_line(colour = "#d7c99d",
-                                                      size = rel(.45)),
+                                                     linetype = "dotted",
+                                                      size = rel(1.25)),
                      panel.spacing = unit(0.25, "lines"),
                      strip.background = element_rect(fill = "#93a1a1",
                                                      colour = NA, linetype = 0),
@@ -165,5 +166,8 @@ theme_glyptodon <- function (base_family = "Roboto Condensed", base_size = 11.5,
                      legend.direction = NULL, legend.justification = "center",
                      plot.background = element_rect(fill = "#eee8d5",
                                                     colour = NA))
+  ret <- ret + theme(plot.caption = element_text(margin = margin(t = 25, r = 0, b = 0, l = 0)))
+  ret <- ret + theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0)),
+                     axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0)))
   ret
 }
