@@ -48,5 +48,6 @@ jobs:
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git commit *.md -m 'Re-built .md Rmarkdown files' || echo "No changes to commit"
+          git add man/figures/*.png
           git commit *.png -m 'Re-built .png charts for Rmarkdown files' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
