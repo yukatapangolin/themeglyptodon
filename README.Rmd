@@ -24,7 +24,7 @@ Theme for ggplot2 based on hrbthemes
 
 ## Installation
 
-You can install the package with:
+You can install the package by running:
 
 ``` r
 # install.packages("remotes")
