@@ -31,7 +31,7 @@
 #' @param ticks
 #'
 #' @return
-#' @importFrom ggplot2 margin theme element_blan element_line element_text rel unit
+#' @importFrom ggplot2 margin theme element_blank element_line element_text rel unit
 #' @export
 #'
 #' @examples
@@ -231,3 +231,7 @@ theme_glyptodon <- function (base_family = "Roboto Condensed",
     )
   ret
 }
+
+#' @importFrom lemon facet_rep_wrap
+#' @export
+lemon::facet_rep_wrap
