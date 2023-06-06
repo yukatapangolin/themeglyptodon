@@ -49,22 +49,27 @@ theme_glyptodon <- function (base_family = "Roboto Condensed",
                              subtitle_margin = 15,
 
                              strip_text_family = "Arial",
-                             strip_text_size = base_size + .5,
+                             strip_text_size = base_size + 1,
                              strip_text_face = "plain",
                              strip_background_col = "#835C3B",
                              strip_text_col = "#ffffff",
+                             strip_tran = FALSE,
 
                              caption_family = "Roboto",
-                             caption_size = base_size - 2,
+                             caption_size = base_size - 1,
                              caption_face = "italic",
                              caption_margin = 10,
+                             caption_col = "#1c1c1c",
 
                              axis_text_family = "Goldman Sans Condensed",
                              axis_text_size = base_size + 2.5,
                              axis_title_family = "Arial",
-                             axis_title_size = base_size - .5,
+                             axis_title_size = base_size,
+                             axis_col = caption_col,
                              axis_title_face = "plain",
                              axis_title_just = "rt",
+                             axis_title_col = caption_col,
+                             axis = TRUE,
 
                              plot_margin = margin(20, 20, 20, 20),
                              plot_background = "#eee8d5",
@@ -74,10 +79,14 @@ theme_glyptodon <- function (base_family = "Roboto Condensed",
                              grid_minor_col = "#d7c99d",
                              grid = TRUE,
 
-                             axis_col = "#010101",
-                             axis = TRUE,
+
                              ticks = TRUE)
 {
+  if (identical(strip_tran, TRUE)) {
+    strip_background_col <-  "transparent"
+    strip_text_face <- "bold"
+    strip_text_col <-  "#121212"
+  }
   ret <- ggplot2::theme_minimal(base_family = base_family,
                                 base_size = base_size)
   ret <- ret + theme(legend.background = element_blank())
@@ -159,31 +168,49 @@ theme_glyptodon <- function (base_family = "Roboto Condensed",
                                                 size = axis_text_size,
                                                 margin = margin(r = 0)))
   ret <- ret + theme(axis.title = element_text(size = axis_title_size,
+                                               color = axis_title_col,
                                                family = axis_title_family))
   ret <- ret + theme(axis.title.x = element_text(hjust = xj,
-                                                 size = axis_title_size, family = axis_title_family, face = axis_title_face))
+                                                 size = axis_title_size,
+                                                 family = axis_title_family,
+                                                 face = axis_title_face))
   ret <- ret + theme(axis.title.y = element_text(hjust = yj,
-                                                 size = axis_title_size, family = axis_title_family, face = axis_title_face))
-  ret <- ret + theme(axis.title.y.right = element_text(hjust = yj,
-                                                       size = axis_title_size, angle = 90, family = axis_title_family,
-                                                       face = axis_title_face))
-  ret <- ret + theme(strip.text = element_text(hjust = 0.5,
-                                               color = strip_text_col,
-                                               size = strip_text_size,
-                                               face = strip_text_face,
-                                               family = strip_text_family),
-                     strip.background = element_rect(fill = strip_background_col,
-                                                     colour = NA, linetype = 0))
+                                                 size = axis_title_size,
+                                                 family = axis_title_family,
+                                                 face = axis_title_face))
+  ret <- ret + theme(axis.title.y.right = element_text(
+    hjust = yj,
+    size = axis_title_size,
+    angle = 90,
+    family = axis_title_family,
+    face = axis_title_face))
+  ret <- ret + theme(strip.text = element_text(
+    hjust = 0.5,
+    color = strip_text_col,
+    size = strip_text_size,
+    face = strip_text_face,
+    family = strip_text_family),
+    strip.background = element_rect(fill = strip_background_col,
+                                    colour = NA, linetype = 0))
   ret <- ret + theme(panel.spacing = grid::unit(2, "lines"))
-  ret <- ret + theme(plot.title = element_text(hjust = 0, size = plot_title_size,
-                                               margin = margin(b = plot_title_margin), family = plot_title_family,
-                                               face = plot_title_face))
-  ret <- ret + theme(plot.subtitle = element_text(hjust = 0,
-                                                  size = subtitle_size, margin = margin(b = subtitle_margin),
-                                                  family = subtitle_family, face = subtitle_face))
-  ret <- ret + theme(plot.caption = element_text(hjust = 1,
-                                                 size = caption_size, margin = margin(t = caption_margin),
-                                                 family = caption_family, face = caption_face))
+  ret <- ret + theme(plot.title = element_text(
+    hjust = 0, size = plot_title_size,
+    margin = margin(b = plot_title_margin),
+    family = plot_title_family,
+    face = plot_title_face))
+  ret <- ret + theme(plot.subtitle = element_text(
+    hjust = 0,
+    size = subtitle_size,
+    margin = margin(b = subtitle_margin),
+    family = subtitle_family,
+    face = subtitle_face))
+  ret <- ret + theme(plot.caption = element_text(
+    hjust = 1,
+    color = caption_col,
+    size = caption_size,
+    margin = margin(t = caption_margin),
+    family = caption_family,
+    face = caption_face))
   ret <- ret + theme(plot.margin = plot_margin)
   ret <- ret + theme(rect = element_rect(fill = strip_background_col,
                                          colour = NA, linetype = 1),

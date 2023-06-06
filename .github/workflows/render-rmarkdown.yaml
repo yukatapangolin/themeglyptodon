@@ -2,7 +2,8 @@ on:
   push:
     paths:
       - '**.Rmd'
-      - '**render-markdown.yaml'
+      - '**.yaml'
+      - '**.R'
       
 name: Render-Markdown
 

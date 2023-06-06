@@ -33,7 +33,7 @@ remotes::install_github("yukatapangolin/themeglyptodon")
 
 ## Example
 
-```{r example, fig.width = 4*3.6, fig.height = 2.5*3.6, dpi = 72}
+```{r example, fig.width = 4*3.6, fig.height = 2.2*3.6, dpi = 72}
 library(glyptodon)
 library(ggplot2)
 library(sysfonts)
@@ -101,7 +101,6 @@ ggplot(df, aes(dates, values)) +
 ```
 
 ## Small Multiple
-
 
 ```{r facets, fig.width = 4*3.6, fig.height = 2*3.6, dpi = 72}
 df2 <- data.frame(dates = seq(as.Date("2020-01-01"), length.out = 99, 
