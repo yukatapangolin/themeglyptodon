@@ -45,6 +45,15 @@ jobs:
 
       - name: Copy fonts
         run: Rscript -e 'dir=system.file("fonts", "roboto-condensed", package="glyptodon");system("mkdir -p ~/Library/Fonts");system(paste0("cp ", dir, "/*.ttf", " ~/Library/Fonts"))'
+      - name: Copy fonts
+      
+        run: Rscript -e 'dir=system.file("fonts", "pt-sans", package="glyptodon");system("mkdir -p ~/Library/Fonts");system(paste0("cp ", dir, "/*.ttf", " ~/Library/Fonts"))'
+        
+      - name: Copy fonts
+        run: Rscript -e 'dir=system.file("fonts", "ibm-plex-sans", package="glyptodon");system("mkdir -p ~/Library/Fonts");system(paste0("cp ", dir, "/*.ttf", " ~/Library/Fonts"))'
+        
+      - name: Copy fonts
+        run: Rscript -e 'dir=system.file("fonts", "source-sans-pro", package="glyptodon");system("mkdir -p ~/Library/Fonts");system(paste0("cp ", dir, "/*.ttf", " ~/Library/Fonts"))'
                
       - name: Install fonts
-        run: Rscript -e 'extrafont::font_import(prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "goldman-sans", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "roboto", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "roboto-condensed", package="glyptodon"), prompt = FALSE)'  
+        run: Rscript -e 'extrafont::font_import(prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "goldman-sans", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "roboto", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "roboto-condensed", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "ibm-plex-sans", package="glyptodon"), prompt = FALSE); extrafont::font_import(paths = system.file("fonts", "source-sans-pro", package="glyptodon"), prompt = FALSE)'  
